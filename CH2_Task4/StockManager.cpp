@@ -31,7 +31,7 @@ bool StockManager::returnPotion(string potionName)
     {
         if (potionStock[potionName] >= Max_STOCK)
         {
-            cout << "재고가 가득 차서 공병을 받을 수가 없네요." << endl << endl;
+            cout << "[" << potionName << "] 재고가 가득 차 있습니다." << endl << endl;
             return false;
         }
         else if (potionStock[potionName] < Max_STOCK)

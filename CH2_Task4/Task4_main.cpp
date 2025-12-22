@@ -111,7 +111,7 @@ int main() {
         else if (choice == 4)
         {
             string Input_name;
-            cout << "\n[지급받을 포션 입력]";
+            cout << "\n[지급받을 포션 입력]" << endl;
             cout << "포션이름 : ";
             cin.ignore(10000, '\n');
             getline(cin, Input_name);
