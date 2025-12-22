@@ -13,6 +13,11 @@ public:
         recipemanager = new RecipeManager;
         stockmanager = new StockManager;
     }
+    ~AlchemyWorkshop()
+    {
+        delete recipemanager;
+        delete stockmanager;
+    }
 
     void displayAllRecipes() const;
 
