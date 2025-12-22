@@ -4,7 +4,7 @@ using namespace std;
 void AlchemyWorkshop::displayAllRecipes() const {
     vector<PotionRecipe> recipesList = recipemanager->getAllRecipes();
     if (recipesList.empty()) {
-        cout << "아직 등록된 레시피가 없습니다." << endl;
+        cout << "아직 등록된 레시피가 없습니다." << endl << endl;
         return;
     }
 
@@ -27,11 +27,17 @@ void AlchemyWorkshop::displayAllRecipes() const {
     cout << "---------------------------" << endl << endl;
 }
 
-void AlchemyWorkshop::addRecipe(string name, vector<string> ingredients)
+void AlchemyWorkshop::AddRecipe(string name, vector<string> ingredients)
 {
-    recipemanager->addRecipe(name, ingredients);
-    stockmanager->initializeStock(name);
-    cout << ">> 새로운 레시피 '" << name << "'이(가) 추가되었습니다." << endl << endl;
+    if (recipemanager->addRecipe(name, ingredients) != nullptr)
+    {
+        stockmanager->initializeStock(name);
+        cout << ">> 새로운 레시피 '" << name << "'이(가) 추가되었습니다." << endl << endl;
+    }
+    else
+    {
+        cout << "[" << name << "] 포션 조합법이 공방에 있습니다." << endl << endl;
+    }
 }
 
 void AlchemyWorkshop::SearchRecipeByName(string name)
@@ -60,7 +66,7 @@ void AlchemyWorkshop::SearchRecipeByName(string name)
     }
     else
     {
-        cout << "\n등록된 레시피가 없습니다." << endl;
+        cout << "등록된 레시피가 없습니다." << endl << endl;
     }
 }
 
@@ -89,7 +95,7 @@ void AlchemyWorkshop::SearchRecipeByIngredient(string ingredient)
     }
     else
     {
-        cout << "\n등록된 레시피가 없습니다." << endl;
+        cout << "등록된 레시피가 없습니다." << endl << endl;
     }
 }
 

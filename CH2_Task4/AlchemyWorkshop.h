@@ -16,7 +16,7 @@ public:
 
     void displayAllRecipes() const;
 
-    void addRecipe(string name, vector<string> ingredients);
+    void AddRecipe(string name, vector<string> ingredients);
     void SearchRecipeByName(string name);
     void SearchRecipeByIngredient(string ingredient);
     void DispensePotion(string name);

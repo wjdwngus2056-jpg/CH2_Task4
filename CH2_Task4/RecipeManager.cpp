@@ -1,10 +1,18 @@
 #include "RecipeManager.h"
 using namespace std;
 
-void RecipeManager::addRecipe(string name, vector<string> ingredients)
+PotionRecipe* RecipeManager::addRecipe(string name, vector<string> ingredients)
 {
-    PotionRecipe* potion = new PotionRecipe(name, ingredients);
-    recipes.push_back(*potion);
+	for (int i = 0; i < recipes.size(); i++)
+	{
+		if (recipes[i].getPotionName() == name)
+		{
+			return nullptr;
+		}
+	}
+
+	recipes.push_back(PotionRecipe(name, ingredients));
+    return &recipes.back();
 }
 
 vector<PotionRecipe> RecipeManager::findRecipeByName(string name)

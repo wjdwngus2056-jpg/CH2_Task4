@@ -52,7 +52,7 @@ int main() {
 
             if (!ingredients_input.empty()) 
             {
-                myWorkshop.addRecipe(name, ingredients_input);
+                myWorkshop.AddRecipe(name, ingredients_input);
             }
             else 
             {

@@ -48,9 +48,16 @@ bool StockManager::returnPotion(string potionName)
 
 const int& StockManager::getStock(string potionName)
 {
-    return potionStock[potionName];
+    if (potionStock.find(potionName) != potionStock.end())
+    {
+        return potionStock[potionName];
+    }
+    return 0;
 }
 void StockManager::setStock(string potionName, int value)
 {
-    potionStock[potionName] = value;
+    if (potionStock.find(potionName) != potionStock.end())
+    {
+        potionStock[potionName] = value;
+    }
 }
